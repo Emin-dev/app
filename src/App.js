@@ -1,31 +1,25 @@
-import { useState } from "react";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import Slider from '@mui/material/Slider';
+import VolumeDown from '@mui/icons-material/VolumeDown';
+import VolumeUp from '@mui/icons-material/VolumeUp';
 
-function FavoriteColor() {
-  const [color, setColor] = useState("red");
+export default function ContinuousSlider() {
+  const [value, setValue] = React.useState(30);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
-    <>
-      <h1>My favorite color is {color}!</h1>
-      <button
-        type="button"
-        onClick={() => setColor("blue")}
-      >Blue</button>
-      <button
-        type="button"
-        onClick={() => setColor("red")}
-      >Red</button>
-      <button
-        type="button"
-        onClick={() => setColor("pink")}
-      >Pink</button>
-      <button
-        type="button"
-        onClick={() => setColor("green")}
-      >Green</button>
-    </>
+    <Box sx={{ width: 200 }}>
+      <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
+        <VolumeDown />
+        <Slider aria-label="Volume" value={value} onChange={handleChange} />
+        <VolumeUp />
+      </Stack>
+      <h1 className="text-3xl font-bold underline">salam</h1>
+    </Box>
   );
 }
-
-
-
-export default FavoriteColor;
