@@ -1,20 +1,31 @@
 import { useState } from "react";
-import Home from './Home';
 
-function App() {
-
-  const [a, seta] = useState(1)
+function FavoriteColor() {
+  const [color, setColor] = useState("red");
 
   return (
-    <div className="app">
-      <Home />
-      <h1>{a}</h1>
-      <button onClick={() => seta((t) => t * 10)}>+</button>
-      <button onClick={() => seta((t) => t - 100)}>-</button>
-    </div>
+    <>
+      <h1>My favorite color is {color}!</h1>
+      <button
+        type="button"
+        onClick={() => setColor("blue")}
+      >Blue</button>
+      <button
+        type="button"
+        onClick={() => setColor("red")}
+      >Red</button>
+      <button
+        type="button"
+        onClick={() => setColor("pink")}
+      >Pink</button>
+      <button
+        type="button"
+        onClick={() => setColor("green")}
+      >Green</button>
+    </>
   );
 }
 
 
 
-export default App;
+export default FavoriteColor;
